@@ -21,7 +21,7 @@ pipeline {
       stage('Checkout project'){
         steps {
           echo 'downloading git directory..'
-	  git 'https://github.com/pawnu/secDevLabs.git'
+	  git 'https://github.com/RaziAbbas1/PythonSecurityPipeline.git'
         }
       }      
       stage('git secret check'){
