@@ -26,11 +26,9 @@ pipeline {
       }      
       stage('git secret check'){
         steps{
-	  script{
-		echo 'running trufflehog to check project history for secrets'
+	        sh 'rm trufflehog || true'
 		sh 'docker run gesellix/trufflehog --json https://github.com/RaziAbbas1/PythonSecurityPipeline.git > trufflehog'
-		sh 'trufflehog --regex --entropy=False --max_depth=3 https://github.com/pawnu/secDevLabs'
-	  }
+		sh 'cat trufflehog'
         }
       }
       stage('SCA'){
